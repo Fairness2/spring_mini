@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Добавление студента</title>
+</head>
+
+<body>
+<h1>Добавление студента:</h1>
+<form method="post" th:action="@{/students/add}" >
+    <label for="name">Имя</label>
+    <input
+    id="name"
+    name="name"
+    type="text" />
+    <label for="surname">Фамилия</label>
+    <input
+    id="surname"
+    name="surname"
+    type="text" />
+    <label for="patronymic">Отчество</label>
+    <input
+    id="patronymic"
+    name="patronymic"
+    type="text" />
+    <label for="age">Возраст</label>
+    <input
+    id="age"
+    name="age"
+    type="number" />
+    <button type="submit">Сохранить</button>
+</form>
+
+<div th:if="${student != null}">
+    <div>Новый студент:</div>
+    <div th:text="'ID: ' + ${student.id}"></div>
+    <div th:text="'Имя: ' + ${student.name}"></div>
+    <div th:text="'Фамилия: ' + ${student.surname}"></div>
+    <div th:text="'Отчество: ' + ${student.patronymic}"></div>
+    <div th:text="'Возраст: ' + ${student.age}"></div>
+</div>
+
+</body>
+</html>
