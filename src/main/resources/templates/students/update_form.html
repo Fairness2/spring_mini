@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>Изменение студента</title>
+</head>
+
+<body>
+<h1>Изменение студента:</h1>
+<form method="post" th:action="@{/students/update}" >
+    <label for="id">ID</label>
+    <input
+    id="id"
+    name="id"
+    type="number"
+    th:value="${student.id}"
+    readonly/>
+    <label for="name">Имя</label>
+    <input
+    id="name"
+    name="name"
+    type="text" />
+    <label for="surname">Фамилия</label>
+    <input
+    id="surname"
+    name="surname"
+    type="text" />
+    <label for="patronymic">Отчество</label>
+    <input
+    id="patronymic"
+    name="patronymic"
+    type="text" />
+    <label for="age">Возраст</label>
+    <input
+    id="age"
+    name="age"
+    type="number" />
+    <button type="submit">Изменить</button>
+</form>
+<div th:if="${result != null}">
+    Изменения сохранены
+</div>
+<div th:if="${student != null}">
+    <div>Изменяемый студент:</div>
+    <div th:text="'ID: ' + ${student.id}"></div>
+    <div th:text="'Имя: ' + ${student.name}"></div>
+    <div th:text="'Фамилия: ' + ${student.surname}"></div>
+    <div th:text="'Отчество: ' + ${student.patronymic}"></div>
+    <div th:text="'Возраст: ' + ${student.age}"></div>
+</div>
+
+</body>
+</html>
